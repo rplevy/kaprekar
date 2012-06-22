@@ -6,7 +6,7 @@ Visualization of Kaprekar Numbers
 
 lein run ./target/sample.svg svg
 
-![Sample Output](https://raw.github.com/rplevy/kaprekar/master/etc/output/sample.svg)
+![Sample Output](https://raw.github.com/rplevy/kaprekar/master/etc/output/sample.png)
 
 ## License
 
