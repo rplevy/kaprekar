@@ -21,7 +21,7 @@
 (defn as-svg [output-file results-vec]
   (let [plane (vec (map vec (partition 100 results-vec)))
         coord #(get-in plane [%1 %2])
-        mag 25]
+        mag 10]
     (spit output-file
           (emit
            (svg {:height (* mag 100)
