@@ -1,7 +1,7 @@
 (ns kaprekar.draw
-  (:require [tikkba.core :refer :all]))
+  (:require [analemma.svg :refer :all]))
 
-(defn html [output-file results-vec]
+(defn as-html [output-file results-vec]
   (let [color (shuffle ["#000000" "#FF0000" "#00FF00" "#0000FF" "#FFFF00"
                         "#00FFFF" "#FF00FF" "#C0C0C0" "#FFFFFF"])
         format-val (fn [str-out value]
@@ -14,9 +14,12 @@
     (spit output-file
           (reduce format-row "" (partition 100 results-vec)))))
 
-(defn svg [output-file results-vec] )
+(defn as-svg [output-file results-vec]
+  (->>
+   "foo"
+   (spit output-file)))
 
-(def using {"svg" svg
+(def using {"svg" as-svg
             "html" html})
 
 (defn usage [& args] (println (format "usage: choose among %s" (keys using))))
