@@ -26,4 +26,4 @@
           (reduce format-row "" (partition 100 results-vec)))))
 
 (defn -main [& [output-file]]
-  (print-colors output-file (vec (map kaprekar-number (range 10000)))))
+  (print-colors output-file (map kaprekar-number (range 10000))))
