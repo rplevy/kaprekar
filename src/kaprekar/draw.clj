@@ -20,16 +20,18 @@
 
 (defn as-svg [output-file results-vec]
   (let [plane (vec (map vec (partition 100 results-vec)))
-        coord #(get-in plane [%1 %2])]
+        coord #(get-in plane [%1 %2])
+        mag 25]
     (spit output-file
           (emit
-           (svg
+           (svg {:height (* mag 100)
+                 :width (* mag 100)}
             (apply
              group
              (for [x (range 100)
                    y (range 100)]
                (when-not (.equals (coord x y) Double/NaN)
-                 (rect (* 50 x) (* 50 y) 50 50 :fill (color (coord x y)))))))))))
+                 (rect (* mag x) (* mag y) mag mag :fill (color (coord x y)))))))))))
 
 
 (def using {"svg" as-svg
